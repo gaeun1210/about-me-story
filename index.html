@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>김가은 · 소개</title>
+<meta name="description" content="교육 현장에서 AI 인프라보안으로 걸어온 김가은의 이야기, 13주 기록의 숫자, 대표작">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f3ec; --paper:#fffdf8; --ink:#1f2421; --muted:#5f665f; --line:#ddd6c8;
+  --accent:#2f5d50; --accent-soft:#e3ece7; --warm:#b5643c;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151816; --paper:#1d211f; --ink:#ece8df; --muted:#a3aaa3; --line:#343a36;
+    --accent:#8cc3ae; --accent-soft:#233029; --warm:#e09a73;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "IBM Plex Sans KR",system-ui,sans-serif;word-break:keep-all}
+a{color:var(--accent)}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+header.hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.kicker{font-size:14px;letter-spacing:.08em;color:var(--muted);margin:0 0 18px}
+h1{font-family:"Gowun Batang",serif;font-size:clamp(44px,9vw,76px);line-height:1.1;margin:0 0 22px;font-weight:700}
+.tagline{font-family:"Gowun Batang",serif;font-size:clamp(20px,3.6vw,27px);line-height:1.6;margin:0 0 34px;max-width:640px}
+.enter{display:flex;flex-wrap:wrap;gap:10px;margin:0;padding:0;list-style:none}
+.enter a{display:inline-block;padding:10px 18px;border:1px solid var(--ink);border-radius:999px;text-decoration:none;color:var(--ink);font-weight:500}
+.enter a:hover{background:var(--ink);color:var(--bg)}
+.contact{margin-top:30px;color:var(--muted);font-size:15px}
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+h2{font-family:"Gowun Batang",serif;font-size:30px;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 36px}
+.story p{font-family:"Gowun Batang",serif;font-size:18.5px;line-height:2;margin:0 0 22px}
+.story .first,.story .last{font-weight:700}
+.chapter{margin:44px 0 0}
+.chapter-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:14px}
+.chapter-head .label{font-weight:600;font-size:15px}
+.chapter-head .date{font-size:14px;color:var(--muted)}
+.chip{font-size:12.5px;padding:2px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:600}
+.pair{margin:26px 0 0;padding:18px 20px;background:var(--paper);border-left:3px solid var(--warm);border-radius:4px;font-size:15.5px}
+.pair b{font-size:24px;color:var(--warm);margin-right:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.stat{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:18px}
+.stat .v{font-size:34px;font-weight:600;line-height:1.2;color:var(--accent)}
+.stat .l{font-weight:600;margin:4px 0 6px}
+.stat .d{font-size:14px;color:var(--muted);line-height:1.6}
+.src{font-size:12.5px;color:var(--muted);margin-top:10px}
+.asof{font-size:14px;color:var(--muted);margin-top:18px}
+.quotes{margin-top:34px}
+.quotes h3{font-size:17px;margin:0 0 12px}
+.quote{margin:0 0 12px;padding:12px 16px;background:var(--paper);border:1px solid var(--line);border-radius:8px}
+.quote q{font-family:"Gowun Batang",serif}
+.quote .src{margin-top:4px}
+.work{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:16px}
+.work.pending{border-style:dashed;background:transparent}
+.work .kind{font-size:13px;color:var(--muted);font-weight:600}
+.work h3{font-family:"Gowun Batang",serif;font-size:22px;margin:6px 0 10px}
+.work p{margin:0 0 14px}
+.btn{display:inline-block;padding:9px 16px;border-radius:8px;background:var(--accent);color:var(--paper);text-decoration:none;font-weight:600}
+.pending .btn{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.resume dl{display:grid;grid-template-columns:120px 1fr;gap:10px 18px;margin:0}
+.resume dt{color:var(--muted)}
+.resume dd{margin:0}
+footer{padding:40px 0 60px;color:var(--muted);font-size:14px}
+@media (max-width:520px){.resume dl{grid-template-columns:1fr}.resume dt{margin-top:8px}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <p class="kicker" id="role"></p>
+  <h1 id="name"></h1>
+  <p class="tagline" id="tagline"></p>
+  <ul class="enter">
+    <li><a href="#story">이야기</a></li>
+    <li><a href="#numbers">숫자</a></li>
+    <li><a href="#works">대표작</a></li>
+    <li><a href="#resume">이력서</a></li>
+  </ul>
+  <p class="contact">연락 · <a id="email"></a></p>
+</div></header>
+
+<main>
+<section id="story"><div class="wrap story">
+  <h2 id="story-title"></h2>
+  <p class="sub">고난에서 다시 일어난 날을 지나, 지금까지의 이야기입니다.</p>
+  <p class="first" id="first"></p>
+  <div id="chapters"></div>
+  <p class="last" id="last"></p>
+</div></section>
+
+<section id="numbers"><div class="wrap">
+  <h2>13주 기록의 숫자</h2>
+  <p class="sub">회복탄력성과 과제지속력을 말이 아니라 기록으로 보여 드립니다. 숫자마다 출처를 적었습니다.</p>
+  <div class="grid" id="stats"></div>
+  <p class="asof" id="asof"></p>
+  <div class="quotes" id="quotes"></div>
+</div></section>
+
+<section id="works"><div class="wrap">
+  <h2>대표작</h2>
+  <p class="sub">과정에서 만든 것 가운데 가장 저다운 두 가지입니다.</p>
+  <div id="worklist"></div>
+</div></section>
+
+<section id="resume" class="resume"><div class="wrap">
+  <h2>이력서</h2>
+  <p class="sub">이력서·자기소개서·경력기술서 문서는 지원서와 함께 따로 보내 드립니다.</p>
+  <dl>
+    <dt>지금</dt><dd>SKT ALEPH AI 인프라보안 과정 (2026.08 ~)</dd>
+    <dt>자격</dt><dd>정보처리기사 필기 합격 · 리눅스마스터 2급 · 사회복지사 1급 · 중등학교 2급 정교사(국어) · 컴퓨터활용능력 2급</dd>
+    <dt>경력</dt><dd>가족센터 다문화가족 자녀 기초학습 지원 (2023.04 ~ 2026.05)<br>고등학교 국어과 기간제 교사 (2021.05 ~ 2021.08)<br>도서관 사서 (2020.01 ~ 2020.06)</dd>
+    <dt>학력</dt><dd>사범대학 국어교육 전공 졸업 (2017.08)</dd>
+  </dl>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span id="foot"></span>
+</div></footer>
+
+<script src="data.js"></script>
+<script>
+(function(){
+  var D = window.SITE_DATA;
+  function el(tag, cls, text){ var e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e; }
+  function $(id){ return document.getElementById(id); }
+  var p = D.profile, s = D.story, n = D.numbers;
+
+  $("name").textContent = p.name;
+  $("tagline").textContent = p.tagline;
+  $("role").textContent = p.role;
+  $("email").textContent = p.email; $("email").href = "mailto:" + p.email;
+
+  $("story-title").textContent = s.title;
+  $("first").textContent = s.first_sentence;
+  $("last").textContent = s.last_sentence;
+  s.sections.forEach(function(sec){
+    var box = el("div","chapter"), head = el("div","chapter-head");
+    head.appendChild(el("span","label",sec.label));
+    head.appendChild(el("span","date",sec.date));
+    head.appendChild(el("span","chip",sec.ability));
+    box.appendChild(head);
+    sec.paragraphs.forEach(function(t){ box.appendChild(el("p",null,t)); });
+    if (n.pairing && n.pairing.scene === sec.date) {
+      var pr = el("div","pair");
+      pr.appendChild(el("b",null,n.pairing.value));
+      pr.appendChild(document.createTextNode(n.pairing.label + " · " + n.pairing.text));
+      pr.appendChild(el("div","src","출처: " + n.pairing.source));
+      box.appendChild(pr);
+    }
+    $("chapters").appendChild(box);
+  });
+
+  n.items.forEach(function(it){
+    var c = el("div","stat");
+    c.appendChild(el("div","v",it.value));
+    c.appendChild(el("div","l",it.label));
+    c.appendChild(el("div","d",it.detail));
+    c.appendChild(el("div","src","출처: " + it.source));
+    $("stats").appendChild(c);
+  });
+  $("asof").textContent = n.as_of + " 기준";
+
+  Object.keys(D.approved || {}).sort().forEach(function(ab){
+    var g = el("div"); g.appendChild(el("h3",null,ab + " — 기록에서 고른 문장"));
+    D.approved[ab].forEach(function(q){
+      var b = el("div","quote"); var qq = el("q",null,q.text); b.appendChild(qq);
+      b.appendChild(el("div","src",q.source)); g.appendChild(b);
+    });
+    $("quotes").appendChild(g);
+  });
+
+  p.works.forEach(function(w){
+    var c = el("article","work" + (w.link ? "" : " pending"));
+    c.appendChild(el("div","kind",w.kind + " · " + w.date));
+    c.appendChild(el("h3",null,w.title));
+    c.appendChild(el("p",null,w.summary));
+    var a = el(w.link ? "a" : "span","btn",w.link_label);
+    if (w.link) { a.href = w.link; a.target = "_blank"; a.rel = "noopener"; }
+    c.appendChild(a);
+    $("worklist").appendChild(c);
+  });
+
+  $("foot").textContent = "© " + p.name + " · 숫자와 기록 문장은 장치(device/build.py)로 " + n.as_of + "에 다시 만들었습니다.";
+})();
+</script>
+</body>
+</html>
