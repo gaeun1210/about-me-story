@@ -87,23 +87,24 @@ def count_numbers(ritual, att, tasks, story, defense=None):
     note = f" ({att['note']})" if att.get("note") else ""
 
     R, A, S = "리추얼 기록", att["source"], "내 제출 현황 (ALEPH 학생 대시보드)"
+    rest_txt = f", 나머지 {rest}개는 진행 중입니다." if rest else "."
     return {
         "as_of": att["as_of"],
         "items": [
             {"id": "absent", "value": f"{att['absent']}일", "label": "결석",
-             "detail": f"훈련일 {att['training_days']}일 중 출석 {att['present']}일, 출석률 {att['rate_percent']}%{note}", "source": A},
+             "detail": f"훈련일 {att['training_days']}일 가운데 {att['present']}일을 출석했습니다(출석률 {att['rate_percent']}%).", "source": A},
             {"id": "ritual_days", "value": f"{len(days)}일", "label": "리추얼 기록",
-             "detail": f"과정 {elapsed_weeks}주째까지 {len(weeks_with)}주 모두 기록 · 아침 {morning}번, 저녁 {evening}번 · 주말 {weekend}일 포함", "source": R},
-            {"id": "strength_done", "value": f"{done}/{len(acts)}", "label": "강점 행동 \"실천했다\"",
-             "detail": f"저녁 기록의 강점 행동 칸 {len(acts)}번 중 실천했다 {done}번, 일부 실천했다 {partial}번", "source": R},
-            {"id": "tasks", "value": f"{confirmed}/{len(tasks)}", "label": "과제 최종 확인 완료",
-             "detail": f"전체 {len(tasks)}개 중 {confirmed}개 확인 완료({first} ~ {last} 제출)" + (f", {rest}개 진행 중" if rest else ""), "source": S},
+             "detail": f"과정 {elapsed_weeks}주 동안 한 주도 빠짐없이 아침과 저녁 기록을 남겼습니다.", "source": R},
+            {"id": "strength_done", "value": f"{done}/{len(acts)}", "label": "강점 실천",
+             "detail": f"저녁마다 그날의 강점 실천을 점검했고, {len(acts)}번 가운데 {done}번 실천했다고 적었습니다.", "source": R},
+            {"id": "tasks", "value": f"{confirmed}/{len(tasks)}", "label": "과제 확인 완료",
+             "detail": f"과제 {len(tasks)}개 가운데 {confirmed}개가 최종 확인을 받았고{rest_txt}".replace("받았고.", "받았습니다."), "source": S},
         ] + ([
-            {"id": "defense", "value": f"{defense['stages_done']}/{defense['stages_total']}", "label": "보안 방어전 단계 완료",
-             "detail": f"{defense['name']} {defense['stages_total']}단계 중 {defense['stages_done']}단계 완료", "source": defense["source"]},
+            {"id": "defense", "value": f"{defense['stages_done']}/{defense['stages_total']}", "label": "보안 방어전",
+             "detail": f"{defense['name']} {defense['stages_total']}단계 가운데 {defense['stages_done']}단계를 마쳤습니다.", "source": defense["source"]},
         ] if defense else []) + [
-            {"id": "gratitude", "value": f"{gratitude}건", "label": "감사일기",
-             "detail": f"동료가 말해 준 내 장점 {peer_praise}개", "source": R},
+            {"id": "gratitude", "value": f"{gratitude}건", "label": "감사 기록",
+             "detail": f"동료와 감사를 나누며 {gratitude}건을 적었고, 동료에게서 장점 {peer_praise}개를 들었습니다.", "source": R},
         ],
         "pairing": {
             "scene": story["pairing"]["scene"],

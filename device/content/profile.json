@@ -34,7 +34,8 @@
         "XDR"
       ],
       "live": "",
-      "repo": "https://github.com/gaeun1210/keshev-defense"
+      "repo": "https://github.com/gaeun1210/keshev-defense",
+      "slug": "keshev-defense"
     },
     {
       "title": "패스키로 잠근 소개 페이지",
@@ -46,7 +47,8 @@
         "SimpleWebAuthn"
       ],
       "live": "https://about-me-passkey-five.vercel.app",
-      "repo": "https://github.com/gaeun1210/about-me-passkey"
+      "repo": "https://github.com/gaeun1210/about-me-passkey",
+      "slug": "about-me-passkey"
     },
     {
       "title": "다이어리 가입·로그인",
@@ -58,7 +60,8 @@
         "PostgreSQL"
       ],
       "live": "https://plandosee-diary-2.vercel.app",
-      "repo": "https://github.com/gaeun1210/plandosee-diary-2"
+      "repo": "https://github.com/gaeun1210/plandosee-diary-2",
+      "slug": "plandosee-diary-2"
     },
     {
       "title": "플랜두씨 다이어리",
@@ -70,7 +73,8 @@
         "Vercel"
       ],
       "live": "https://plandosee-diary-ten.vercel.app/?plan=1",
-      "repo": "https://github.com/gaeun1210/plandosee-diary"
+      "repo": "https://github.com/gaeun1210/plandosee-diary",
+      "slug": "plandosee-diary"
     },
     {
       "title": "동성로 기온 정보판",
@@ -82,7 +86,8 @@
         "장애 대응"
       ],
       "live": "https://informationboard-omega.vercel.app",
-      "repo": "https://github.com/gaeun1210/InformationBoard"
+      "repo": "https://github.com/gaeun1210/InformationBoard",
+      "slug": "information-board"
     },
     {
       "title": "두 AI 인수인계 개선",
@@ -94,7 +99,8 @@
         "자동 검사"
       ],
       "live": "https://ai-handoff-relay.vercel.app/tests.html",
-      "repo": "https://github.com/gaeun1210/zzalstudio"
+      "repo": "https://github.com/gaeun1210/zzalstudio",
+      "slug": "ai-handoff-relay"
     },
     {
       "title": "짤 카드 스튜디오",
@@ -106,7 +112,8 @@
         "JavaScript"
       ],
       "live": "https://zzalstudio.vercel.app",
-      "repo": "https://github.com/gaeun1210/zzalstudio"
+      "repo": "https://github.com/gaeun1210/zzalstudio",
+      "slug": "zzal-studio"
     },
     {
       "title": "코어 싱크 30",
@@ -118,7 +125,8 @@
         "게임"
       ],
       "live": "https://minigame-ruddy-zeta.vercel.app",
-      "repo": "https://github.com/gaeun1210/Mini-Game"
+      "repo": "https://github.com/gaeun1210/Mini-Game",
+      "slug": "core-sync-30"
     }
   ],
   "skills": [

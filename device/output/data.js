@@ -26,37 +26,37 @@ window.SITE_DATA = {
     "as_of": "2026-10-31",
     "items": [
       {
-        "detail": "훈련일 54일 중 출석 54일, 출석률 100%",
+        "detail": "훈련일 54일 가운데 54일을 출석했습니다(출석률 100%).",
         "id": "absent",
         "label": "결석",
         "source": "내 출석 기록 (ALEPH 학생 대시보드)",
         "value": "0일"
       },
       {
-        "detail": "과정 12주째까지 12주 모두 기록 · 아침 55번, 저녁 54번 · 주말 1일 포함",
+        "detail": "과정 12주 동안 한 주도 빠짐없이 아침과 저녁 기록을 남겼습니다.",
         "id": "ritual_days",
         "label": "리추얼 기록",
         "source": "리추얼 기록",
         "value": "55일"
       },
       {
-        "detail": "저녁 기록의 강점 행동 칸 54번 중 실천했다 52번, 일부 실천했다 2번",
+        "detail": "저녁마다 그날의 강점 실천을 점검했고, 54번 가운데 52번 실천했다고 적었습니다.",
         "id": "strength_done",
-        "label": "강점 행동 \"실천했다\"",
+        "label": "강점 실천",
         "source": "리추얼 기록",
         "value": "52/54"
       },
       {
-        "detail": "전체 13개 중 11개 확인 완료(2026-09-27 ~ 2026-10-30 제출), 2개 진행 중",
+        "detail": "과제 13개 가운데 11개가 최종 확인을 받았고, 나머지 2개는 진행 중입니다.",
         "id": "tasks",
-        "label": "과제 최종 확인 완료",
+        "label": "과제 확인 완료",
         "source": "내 제출 현황 (ALEPH 학생 대시보드)",
         "value": "11/13"
       },
       {
-        "detail": "동료가 말해 준 내 장점 159개",
+        "detail": "동료와 감사를 나누며 104건을 적었고, 동료에게서 장점 159개를 들었습니다.",
         "id": "gratitude",
-        "label": "감사일기",
+        "label": "감사 기록",
         "source": "리추얼 기록",
         "value": "104건"
       }
@@ -65,7 +65,7 @@ window.SITE_DATA = {
       "label": "첫 3주(8월 11일~8월 31일) 리추얼 기록",
       "scene": "2026년 8월 27일",
       "source": "리추얼 기록, 내 출석 기록 (ALEPH 학생 대시보드)",
-      "text": "오류 앞에서 막혔던 이 기간에도 리추얼 기록은 훈련일마다 이어졌고 결석은 한 번도 없었습니다.",
+      "text": "8월 27일처럼 오류 앞에서 막혔던 첫 3주 동안에도 훈련일마다 빠짐없이 기록했고, 결석은 한 번도 없었습니다.",
       "value": "14일"
     }
   },
@@ -78,6 +78,7 @@ window.SITE_DATA = {
         "date": "2026.10 –",
         "live": "",
         "repo": "https://github.com/gaeun1210/keshev-defense",
+        "slug": "keshev-defense",
         "stack": [
           "Node.js",
           "ZTNA",
@@ -91,6 +92,7 @@ window.SITE_DATA = {
         "date": "2026.10.20",
         "live": "https://about-me-passkey-five.vercel.app",
         "repo": "https://github.com/gaeun1210/about-me-passkey",
+        "slug": "about-me-passkey",
         "stack": [
           "WebAuthn",
           "SimpleWebAuthn"
@@ -103,6 +105,7 @@ window.SITE_DATA = {
         "date": "2026.10.19",
         "live": "https://plandosee-diary-2.vercel.app",
         "repo": "https://github.com/gaeun1210/plandosee-diary-2",
+        "slug": "plandosee-diary-2",
         "stack": [
           "Neon",
           "PostgreSQL"
@@ -115,6 +118,7 @@ window.SITE_DATA = {
         "date": "2026.10.11",
         "live": "https://plandosee-diary-ten.vercel.app/?plan=1",
         "repo": "https://github.com/gaeun1210/plandosee-diary",
+        "slug": "plandosee-diary",
         "stack": [
           "Supabase",
           "Vercel"
@@ -127,6 +131,7 @@ window.SITE_DATA = {
         "date": "2026.10.08",
         "live": "https://informationboard-omega.vercel.app",
         "repo": "https://github.com/gaeun1210/InformationBoard",
+        "slug": "information-board",
         "stack": [
           "Open-Meteo API",
           "장애 대응"
@@ -139,6 +144,7 @@ window.SITE_DATA = {
         "date": "2026.10.09",
         "live": "https://ai-handoff-relay.vercel.app/tests.html",
         "repo": "https://github.com/gaeun1210/zzalstudio",
+        "slug": "ai-handoff-relay",
         "stack": [
           "인수인계 문서",
           "자동 검사"
@@ -151,6 +157,7 @@ window.SITE_DATA = {
         "date": "2026.10.05",
         "live": "https://zzalstudio.vercel.app",
         "repo": "https://github.com/gaeun1210/zzalstudio",
+        "slug": "zzal-studio",
         "stack": [
           "Canvas",
           "JavaScript"
@@ -163,6 +170,7 @@ window.SITE_DATA = {
         "date": "2026.09.29",
         "live": "https://minigame-ruddy-zeta.vercel.app",
         "repo": "https://github.com/gaeun1210/Mini-Game",
+        "slug": "core-sync-30",
         "stack": [
           "JavaScript",
           "게임"
@@ -231,7 +239,7 @@ window.SITE_DATA = {
     "last_sentence": "AI가 내놓은 답도, 제가 만든 결과도 직접 확인하고 끝까지 책임지는 AI 인프라보안 엔지니어로 일하겠습니다.",
     "pairing": {
       "scene": "2026년 8월 27일",
-      "text": "오류 앞에서 막혔던 이 기간에도 리추얼 기록은 훈련일마다 이어졌고 결석은 한 번도 없었습니다."
+      "text": "8월 27일처럼 오류 앞에서 막혔던 첫 3주 동안에도 훈련일마다 빠짐없이 기록했고, 결석은 한 번도 없었습니다."
     },
     "sections": [
       {
