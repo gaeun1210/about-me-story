@@ -74,6 +74,8 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 .pair .src{font-size:12.5px;color:var(--muted);margin-top:4px}
 .closing{grid-column:2;font-family:"Gowun Batang",serif;font-size:clamp(22px,2.6vw,27px);line-height:1.65;margin:8px 0 0;padding-top:28px;border-top:1px solid var(--line)}
 
+.now-para{grid-column:2}
+.now-para p{font-family:"Gowun Batang",serif;font-size:18.5px;line-height:2.05;margin:0 0 20px;max-width:640px}
 /* numbers - light band */
 #numbers{background:var(--soft);border-top:1px solid var(--line)}
 .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
@@ -122,7 +124,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
 
 @media (max-width:900px){
   .hero .grid,.sec-head,.story,.tl,.works,.resume{grid-template-columns:1fr;gap:24px}
-  .lead,.closing{grid-column:1}
+  .lead,.closing,.now-para{grid-column:1}
   .tl .side{padding:0 0 12px}
   .tl .body{padding-bottom:48px}
   .stats{grid-template-columns:1fr 1fr}
@@ -151,7 +153,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
     </div>
     <div class="card-id">
       <div class="row"><span class="k">지금</span><span class="v">SKT ALEPH AI 인프라보안 과정</span></div>
-      <div class="row"><span class="k">이전</span><span class="v">도서관·학교·가족센터 · 교육 현장</span></div>
+      <div class="row"><span class="k">이전</span><span class="v">도서관·학교·센터 · 교육 현장</span></div>
       <div class="row"><span class="k">기록</span><span class="v" id="id-rec"></span></div>
       <div class="row"><span class="k">연락</span><span class="v"><a id="email"></a></span></div>
       <div class="btns"><a class="primary" href="#story">이야기 읽기</a><a href="#works">대표작 보기</a></div>
@@ -165,6 +167,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
   <div class="story">
     <p class="lead" id="first"></p>
     <div class="tl" id="chapters"></div>
+    <div class="now-para" id="closing"></div>
     <p class="closing" id="last"></p>
   </div>
 </div></section>
@@ -186,7 +189,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
   <div class="resume">
     <div class="rbox"><h4>경력</h4><ul>
       <li><span>SKT ALEPH AI 인프라보안 과정</span><span class="p">2026.08 –</span></li>
-      <li><span>가족센터 · 다문화가족 자녀 기초학습 지원</span><span class="p">2023.04 – 2026.05</span></li>
+      <li><span>센터 · 다문화가족 자녀 교육 프로그램 운영</span><span class="p">2023.04 – 2026.05</span></li>
       <li><span>고등학교 국어과 기간제 교사</span><span class="p">2021.05 – 2021.08</span></li>
       <li><span>도서관 사서</span><span class="p">2020.01 – 2020.06</span></li>
       <li><span>사범대학 국어교육 전공 졸업</span><span class="p">2017.08</span></li>
@@ -217,7 +220,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
   [$("email"),$("email2")].forEach(function(a){a.textContent=p.email;a.href="mailto:"+p.email;});
   var r=n.items.filter(function(i){return i.id==="ritual_days";})[0],ab=n.items.filter(function(i){return i.id==="absent";})[0];
   $("id-rec").textContent="리추얼 "+r.value+" · 결석 "+ab.value;
-  $("story-title").textContent=s.title;$("first").textContent=s.first_sentence;$("last").textContent=s.last_sentence;
+  $("story-title").textContent=s.title;$("first").textContent=s.first_sentence;$("last").textContent=s.last_sentence;(s.closing||[]).forEach(function(t){$("closing").appendChild(el("p",null,t));});
   s.sections.forEach(function(sec,i){
     var side=el("div","side");side.appendChild(el("div","date",sec.date));side.appendChild(el("div","lab",sec.label));side.appendChild(el("span","chip",sec.ability));
     var body=el("div","body"+(i===s.sections.length-1?" now":""));
