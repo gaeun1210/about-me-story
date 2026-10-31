@@ -78,7 +78,7 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 .now-para p{font-family:"Gowun Batang",serif;font-size:18.5px;line-height:2.05;margin:0 0 20px;max-width:640px}
 /* numbers - light band */
 #numbers{background:var(--soft);border-top:1px solid var(--line)}
-.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .stat{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px 20px 20px;border-top:4px solid var(--accent)}
 .stat:first-child{border-top-color:var(--accent-2)}
 .stat .v{font-family:"IBM Plex Mono",monospace;font-size:clamp(34px,4vw,46px);font-weight:500;line-height:1;color:var(--accent)}
@@ -108,6 +108,16 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 .work.pending{background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--line) 45%,transparent) 14px 15px);border-style:dashed}
 .work.pending .btn{background:transparent;color:var(--muted);border:1px dashed var(--muted)}
 
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:f}
+.flow li{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px;position:relative}
+.flow li .mono{font-size:12px;color:var(--accent-2)}
+.flow li b{font-size:16px}
+.flow li span:last-child{font-size:14px;color:var(--muted);line-height:1.65}
+.flow code{font-family:"IBM Plex Mono",monospace;font-size:12.5px;background:var(--soft);padding:1px 6px;border-radius:5px;color:var(--ink)}
+.build{margin:20px 0 6px;font-size:13px;color:var(--muted)}
+.devlink a{color:var(--accent);font-weight:600}
+@media (max-width:900px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.flow{grid-template-columns:1fr}}
 /* resume */
 .resume{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 .rbox{border-top:2px solid var(--ink);padding-top:16px}
@@ -137,7 +147,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
 </head>
 <body>
 <nav><div class="wrap"><span class="me" id="nav-name"></span>
-  <ul><li><a href="#story">이야기</a></li><li><a href="#numbers">숫자</a></li><li><a href="#works">대표작</a></li><li><a href="#resume">이력서</a></li></ul>
+  <ul><li><a href="#story">이야기</a></li><li><a href="#numbers">숫자</a></li><li><a href="#works">대표작</a></li><li><a href="#resume">이력서</a></li><li><a href="#update">업데이트</a></li></ul>
 </div></nav>
 
 <header class="hero">
@@ -153,7 +163,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
     </div>
     <div class="card-id">
       <div class="row"><span class="k">지금</span><span class="v">SKT ALEPH AI 인프라보안 과정</span></div>
-      <div class="row"><span class="k">이전</span><span class="v">도서관·학교·센터 · 교육 현장</span></div>
+      <div class="row"><span class="k">이전</span><span class="v">도서관·학교·센터</span></div>
       <div class="row"><span class="k">기록</span><span class="v" id="id-rec"></span></div>
       <div class="row"><span class="k">연락</span><span class="v"><a id="email"></a></span></div>
       <div class="btns"><a class="primary" href="#story">이야기 읽기</a><a href="#works">대표작 보기</a></div>
@@ -189,19 +199,30 @@ footer .small{font-size:12.5px;color:var(--muted)}
   <div class="resume">
     <div class="rbox"><h4>경력</h4><ul>
       <li><span>SKT ALEPH AI 인프라보안 과정</span><span class="p">2026.08 –</span></li>
-      <li><span>센터 · 다문화가족 자녀 교육 프로그램 운영</span><span class="p">2023.04 – 2026.05</span></li>
+      <li><span>센터 교사</span><span class="p">2023.04 – 2026.05</span></li>
       <li><span>고등학교 국어과 기간제 교사</span><span class="p">2021.05 – 2021.08</span></li>
       <li><span>도서관 사서</span><span class="p">2020.01 – 2020.06</span></li>
       <li><span>사범대학 국어교육 전공 졸업</span><span class="p">2017.08</span></li>
     </ul></div>
     <div class="rbox"><h4>자격</h4><ul>
       <li><span>리눅스마스터 2급</span><span class="p">2026</span></li>
-      <li><span>정보처리기사 필기 합격</span><span class="p">2026</span></li>
-      <li><span>사회복지사 1급</span><span class="p"></span></li>
-      <li><span>중등학교 2급 정교사(국어)</span><span class="p"></span></li>
-      <li><span>컴퓨터활용능력 2급</span><span class="p"></span></li>
+      <li><span>사회복지사 1급</span><span class="p">2026</span></li>
+      <li><span>중등학교 2급 정교사(국어)</span><span class="p">2017</span></li>
+      <li><span>컴퓨터활용능력 2급</span><span class="p">2020</span></li>
     </ul></div>
   </div>
+</div></section>
+
+<section id="update"><div class="wrap">
+  <div class="sec-head"><div class="num mono">05 · UPDATE</div><div><h2>이 사이트는 기록으로 다시 쓰입니다</h2><p>숫자 칸과 기록에서 고른 문장은 손으로 고치지 않습니다. 새 기록을 넣고 장치를 한 번 돌리면 다시 만들어집니다.</p></div></div>
+  <ol class="flow">
+    <li><span class="mono">01 · INPUT</span><b>새 기록 넣기</b><span>리추얼 기록, 출석 숫자, 과제 목록, 방어전 단계</span></li>
+    <li><span class="mono">02 · BUILD</span><b>장치 실행</b><span><code>python build.py --site ..</code> · AI 호출 없이 같은 입력에 같은 결과</span></li>
+    <li><span class="mono">03 · REVIEW</span><b>문단 후보 승인</b><span>능력별 후보 5개씩, 날짜·근거와 함께 · 승인한 문장만 사이트에 실림</span></li>
+    <li><span class="mono">04 · DEPLOY</span><b>사이트 반영</b><span>바뀐 데이터 파일을 올리면 자동 배포</span></li>
+  </ol>
+  <p class="build mono" id="build"></p>
+  <p class="devlink"><a href="https://github.com/gaeun1210/about-me-story/tree/main/device" target="_blank" rel="noopener">장치 코드와 사용법 보기 (GitHub)</a></p>
 </div></section>
 </main>
 
@@ -229,7 +250,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
     $("chapters").appendChild(side);$("chapters").appendChild(body);
   });
   n.items.forEach(function(it){var c=el("div","stat");c.appendChild(el("div","v",it.value));c.appendChild(el("div","l",it.label));c.appendChild(el("div","d",it.detail));c.appendChild(el("div","s","출처 · "+it.source));$("stats").appendChild(c);});
-  $("asof").textContent=n.as_of+" 기준";
+  $("asof").textContent=n.as_of+" 기준";var ap=0;Object.keys(D.approved||{}).forEach(function(k){ap+=D.approved[k].length;});$("build").textContent="마지막 갱신 "+n.as_of+" · 숫자 "+n.items.length+"개 · 승인된 기록 문장 "+ap+"개";
   Object.keys(D.approved||{}).sort().forEach(function(k){D.approved[k].forEach(function(q){var b=el("div","q");b.appendChild(el("div","ab",k));b.appendChild(el("p",null,"“"+q.text+"”"));b.appendChild(el("div","s",q.source));$("quotes").appendChild(b);});});
   p.works.forEach(function(w,i){
     var c=el("article","work"+(w.link?"":" pending"));c.appendChild(el("div","kind",w.kind+" · "+w.date));c.appendChild(el("h3",null,w.title));c.appendChild(el("p",null,w.summary));

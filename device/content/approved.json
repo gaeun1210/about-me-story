@@ -1,0 +1,4 @@
+{
+  "note": "output/candidates.md에서 고른 후보 id를 적습니다. 지우면 사이트에서도 빠집니다.",
+  "approved": ["fb3a6ce536", "c7cd5ac4dd", "68c73b5dc0"]
+}

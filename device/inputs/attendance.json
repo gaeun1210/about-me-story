@@ -1,0 +1,12 @@
+{
+  "source": "내 출석 기록 (ALEPH 학생 대시보드)",
+  "as_of": "2026-10-31",
+  "course_start": "2026-08-11",
+  "course_weeks": 13,
+  "training_days": 54,
+  "enrolled_days": 54,
+  "present": 54,
+  "absent": 0,
+  "rate_percent": 100,
+  "note": ""
+}

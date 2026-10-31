@@ -1,0 +1,4 @@
+device/inputs/ritual.json
+device/output/candidates.md
+device/output/manifest.txt
+__pycache__/
