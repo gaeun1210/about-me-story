@@ -91,21 +91,23 @@ def count_numbers(ritual, att, tasks, story, defense=None):
     return {
         "as_of": att["as_of"],
         "items": [
-            {"id": "absent", "value": f"{att['absent']}일", "label": "결석",
+            {"id": "absent", "value": f"{att['absent']}일", "label": "결석", "num": att["present"], "den": att["training_days"],
              "detail": f"훈련일 {att['training_days']}일 가운데 {att['present']}일을 출석했습니다(출석률 {att['rate_percent']}%).", "source": A},
             {"id": "ritual_days", "value": f"{len(days)}일", "label": "리추얼 기록",
              "detail": f"과정 {elapsed_weeks}주 동안 한 주도 빠짐없이 아침과 저녁 기록을 남겼습니다.", "source": R},
-            {"id": "strength_done", "value": f"{done}/{len(acts)}", "label": "강점 실천",
+            {"id": "strength_done", "value": f"{done}/{len(acts)}", "label": "강점 실천", "num": done, "den": len(acts),
              "detail": f"저녁마다 그날의 강점 실천을 점검했고, {len(acts)}번 가운데 {done}번 실천했다고 적었습니다.", "source": R},
-            {"id": "tasks", "value": f"{confirmed}/{len(tasks)}", "label": "과제 확인 완료",
+            {"id": "tasks", "value": f"{confirmed}/{len(tasks)}", "label": "과제 확인 완료", "num": confirmed, "den": len(tasks),
              "detail": f"과제 {len(tasks)}개 가운데 {confirmed}개가 최종 확인을 받았고{rest_txt}".replace("받았고.", "받았습니다."), "source": S},
         ] + ([
             {"id": "defense", "value": f"{defense['stages_done']}/{defense['stages_total']}", "label": "보안 방어전",
              "detail": f"{defense['name']} {defense['stages_total']}단계 가운데 {defense['stages_done']}단계를 마쳤습니다.", "source": defense["source"]},
         ] if defense else []) + [
-            {"id": "gratitude", "value": f"{gratitude}건", "label": "감사 기록",
+            {"id": "gratitude", "value": f"{gratitude}건", "label": "감사 기록", "num": gratitude, "extra": peer_praise,
              "detail": f"동료와 감사를 나누며 {gratitude}건을 적었고, 동료에게서 장점 {peer_praise}개를 들었습니다.", "source": R},
         ],
+        "calendar": {"start": att["course_start"], "end": att["as_of"],
+                     "dates": [x.isoformat() for x in dates], "first3_end": first3_end.isoformat()},
         "pairing": {
             "scene": story["pairing"]["scene"],
             "value": f"{first3}일",
