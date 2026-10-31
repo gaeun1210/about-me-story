@@ -62,6 +62,7 @@ nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--ink)}
 .card-id .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:15.5px}
 .card-id .k{color:var(--muted)} .card-id .v{color:var(--ink);font-weight:600;text-align:right}
 .card-id .v a{color:var(--accent)}
+.card-id .row.last{border-bottom:0}
 .card-id .btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
 .code-card{background:#0f1716;border-radius:16px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(0,0,0,.6);border:1px solid #1f2b29}
 .cc-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #1f2b29}
@@ -244,9 +245,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
     <h1 id="name"></h1>
     <p class="tag"><em id="tagline"></em></p>
   </div>
-  <div class="code-card" aria-label="프로필 요약">
-    <div class="cc-bar"><i></i><i></i><i></i><span>profile.json</span></div>
-    <pre class="cc"><code id="profile-code"></code></pre>
+  <div class="card-id">
+    <div class="row"><span class="k">지금</span><span class="v">SKT ALEPH AI 인프라보안 과정</span></div>
+    <div class="row"><span class="k">이전</span><span class="v">도서관·학교·센터</span></div>
+    <div class="row"><span class="k">기록</span><span class="v" id="id-rec"></span></div>
+    <div class="row"><span class="k">연락</span><span class="v"><a id="email"></a></span></div>
+    <div class="row last"><span class="k">GitHub</span><span class="v"><a id="gh" target="_blank" rel="noopener"></a></span></div>
   </div>
 </div></header>
 
@@ -332,23 +336,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
   $("nav-name").textContent=p.name;$("name").textContent=p.name;$("role").textContent=p.role;$("tagline").textContent=p.tagline;
   var m2=$("email2");m2.textContent=p.email;m2.href="mailto:"+p.email;
   function item(id){return n.items.filter(function(i){return i.id===id;})[0];}
-  /* profile.json card */
-  (function(){
-    var code=$("profile-code"),ln=0;
-    function line(parts){var d=el("span");var l=el("span","ln",String(++ln));d.appendChild(l);parts.forEach(function(x){d.appendChild(x);});d.appendChild(document.createTextNode("\n"));code.appendChild(d);}
-    function t(c,x){return el("span",c,x);}
-    function kv(k,v,href,last){var parts=[document.createTextNode("  "),t("k",'"'+k+'"'),t("p",": ")];
-      if(href){var a=el("a",null,'"'+v+'"');a.href=href;if(href.indexOf("http")===0){a.target="_blank";a.rel="noopener";}parts.push(a);}else parts.push(t("s",'"'+v+'"'));
-      parts.push(t("p",last?"":","));line(parts);}
-    line([t("cm","// "+p.role)]);
-    line([t("p","{")]);
-    kv("now","SKT ALEPH AI 인프라보안 과정");
-    kv("before","도서관 · 학교 · 센터");
-    kv("record","리추얼 "+item("ritual_days").value+" · 결석 "+item("absent").value);
-    kv("email",p.email,"mailto:"+p.email);
-    kv("github",p.github.replace("https://",""),p.github,true);
-    line([t("p","}")]);
-  })();
+  var em=$("email");em.textContent=p.email;em.href="mailto:"+p.email;
+  var gh=$("gh");gh.textContent=p.github.replace("https://","");gh.href=p.github;
+  $("id-rec").textContent="리추얼 "+item("ritual_days").value+" · 결석 "+item("absent").value;
   $("status-t").textContent="정상 · build "+n.as_of;
 
   /* story */
