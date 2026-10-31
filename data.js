@@ -54,13 +54,6 @@ window.SITE_DATA = {
         "value": "11/13"
       },
       {
-        "detail": "보안 방어전 BYTE BACK 22단계 중 22단계 완료",
-        "id": "defense",
-        "label": "보안 방어전 단계 완료",
-        "source": "메모리얼 파크 내 기록 (ALEPH)",
-        "value": "22/22"
-      },
-      {
         "detail": "동료가 말해 준 내 장점 159개",
         "id": "gratitude",
         "label": "감사일기",
@@ -78,8 +71,138 @@ window.SITE_DATA = {
   },
   "profile": {
     "email": "eunjoy1210@naver.com",
+    "github": "https://github.com/gaeun1210",
     "name": "김가은",
+    "projects": [
+      {
+        "date": "2026.10 –",
+        "live": "",
+        "repo": "https://github.com/gaeun1210/keshev-defense",
+        "stack": [
+          "Node.js",
+          "ZTNA",
+          "XDR"
+        ],
+        "status": "제작 중",
+        "summary": "직원이 자기 로그인 상태, 업무 앱 접속 판정, 접속 기록과 XDR 경보를 한 화면에서 보는 보안 앱입니다. 방어전 22단계를 마치고 PC 앱으로 완성하고 있습니다.",
+        "title": "케셰브 · ZTNA·XDR 보안 Agent"
+      },
+      {
+        "date": "2026.10.20",
+        "live": "https://about-me-passkey-five.vercel.app",
+        "repo": "https://github.com/gaeun1210/about-me-passkey",
+        "stack": [
+          "WebAuthn",
+          "SimpleWebAuthn"
+        ],
+        "status": "",
+        "summary": "패스키(WebAuthn)로 비공개 영역을 잠그고, 로그인 없이 요청하면 401로 막히는지 직접 확인했습니다.",
+        "title": "패스키로 잠근 소개 페이지"
+      },
+      {
+        "date": "2026.10.19",
+        "live": "https://plandosee-diary-2.vercel.app",
+        "repo": "https://github.com/gaeun1210/plandosee-diary-2",
+        "stack": [
+          "Neon",
+          "PostgreSQL"
+        ],
+        "status": "가입 후 사용",
+        "summary": "가입·로그인과 사용자별 데이터 분리를 붙이고, 비밀번호가 해시로 저장되는지 데이터베이스에서 확인했습니다.",
+        "title": "다이어리 가입·로그인"
+      },
+      {
+        "date": "2026.10.11",
+        "live": "https://plandosee-diary-ten.vercel.app/?plan=1",
+        "repo": "https://github.com/gaeun1210/plandosee-diary",
+        "stack": [
+          "Supabase",
+          "Vercel"
+        ],
+        "status": "",
+        "summary": "계획·실행·돌아보기를 기록하고, 막힌 횟수와 그 근거를 함께 남기는 다이어리입니다.",
+        "title": "플랜두씨 다이어리"
+      },
+      {
+        "date": "2026.10.08",
+        "live": "https://informationboard-omega.vercel.app",
+        "repo": "https://github.com/gaeun1210/InformationBoard",
+        "stack": [
+          "Open-Meteo API",
+          "장애 대응"
+        ],
+        "status": "",
+        "summary": "공개 날씨 데이터를 받아 보여 주고, 실패 다섯 가지를 재생하고 복구하는 장애 재생실을 만들었습니다.",
+        "title": "동성로 기온 정보판"
+      },
+      {
+        "date": "2026.10.09",
+        "live": "https://ai-handoff-relay.vercel.app/tests.html",
+        "repo": "https://github.com/gaeun1210/zzalstudio",
+        "stack": [
+          "인수인계 문서",
+          "자동 검사"
+        ],
+        "status": "",
+        "summary": "두 AI가 인수인계 문서로 작업을 이어받아 기능을 개선했고, 검사 10개를 모두 통과했습니다.",
+        "title": "두 AI 인수인계 개선"
+      },
+      {
+        "date": "2026.10.05",
+        "live": "https://zzalstudio.vercel.app",
+        "repo": "https://github.com/gaeun1210/zzalstudio",
+        "stack": [
+          "Canvas",
+          "JavaScript"
+        ],
+        "status": "",
+        "summary": "이미지에 문구를 얹어 세 가지 비율로 저장하고, 화면과 저장 파일이 픽셀 단위로 같은지 대조합니다.",
+        "title": "짤 카드 스튜디오"
+      },
+      {
+        "date": "2026.09.29",
+        "live": "https://minigame-ruddy-zeta.vercel.app",
+        "repo": "https://github.com/gaeun1210/Mini-Game",
+        "stack": [
+          "JavaScript",
+          "게임"
+        ],
+        "status": "",
+        "summary": "30초 안에 10번 명중시키는 타이밍 게임으로, 마우스·키보드·터치에서 같은 판정이 나오게 했습니다.",
+        "title": "코어 싱크 30"
+      }
+    ],
     "role": "AI 인프라보안 엔지니어를 준비하고 있습니다",
+    "skills": [
+      {
+        "group": "인프라·보안",
+        "items": [
+          "Linux",
+          "네트워크 라우팅 (GNS3)",
+          "웹 서버 구축",
+          "Zabbix 모니터링",
+          "패스키 (WebAuthn)",
+          "ZTNA·XDR"
+        ]
+      },
+      {
+        "group": "개발",
+        "items": [
+          "HTML·CSS·JavaScript",
+          "Node.js",
+          "Python"
+        ]
+      },
+      {
+        "group": "데이터·배포",
+        "items": [
+          "Supabase",
+          "Neon (PostgreSQL)",
+          "Vercel",
+          "Git·GitHub"
+        ]
+      }
+    ],
     "tagline": "낯선 기술은 질문과 검증으로 익히고, 막힌 문제는 원인을 찾을 때까지 추적하는 사람",
     "works": [
       {

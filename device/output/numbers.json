@@ -30,13 +30,6 @@
       "value": "11/13"
     },
     {
-      "detail": "보안 방어전 BYTE BACK 22단계 중 22단계 완료",
-      "id": "defense",
-      "label": "보안 방어전 단계 완료",
-      "source": "메모리얼 파크 내 기록 (ALEPH)",
-      "value": "22/22"
-    },
-    {
       "detail": "동료가 말해 준 내 장점 159개",
       "id": "gratitude",
       "label": "감사일기",

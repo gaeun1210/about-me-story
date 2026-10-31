@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>김가은 · 소개</title>
-<meta name="description" content="교육 현장에서 AI 인프라보안으로 걸어온 김가은의 이야기, 13주 기록의 숫자, 대표작">
+<meta name="description" content="낯선 기술은 질문과 검증으로 익히고, 막힌 문제는 원인을 찾을 때까지 추적하는 사람 · AI 인프라보안 엔지니어를 준비하는 김가은">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://about-me-story.vercel.app/">
+<meta property="og:title" content="김가은 · AI 인프라보안 엔지니어 지망">
+<meta property="og:description" content="낯선 기술은 질문과 검증으로 익히고, 막힌 문제는 원인을 찾을 때까지 추적하는 사람">
+<meta property="og:image" content="https://about-me-story.vercel.app/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232c5a4c'/%3E%3Ctext x='16' y='22' font-size='15' text-anchor='middle' fill='%23fbf8f1' font-family='monospace'%3E%3E_%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -22,7 +30,8 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 "IBM Plex Sans KR",system-ui,sans-serif;word-break:keep-all;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+@media (max-width:600px){.wrap{padding:0 18px}}
 .mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.02em}
 
 /* nav */
@@ -51,7 +60,7 @@ nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--ink)}
 
 /* section base */
 section{padding:96px 0;border-top:1px solid var(--line)}
-.sec-head{display:grid;grid-template-columns:200px 1fr;gap:40px;margin-bottom:48px}
+.sec-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:48px}
 .sec-head .num{font-size:13px;color:var(--muted)}
 .sec-head h2{font-family:"Gowun Batang",serif;font-size:clamp(30px,4vw,42px);line-height:1.25;margin:0 0 10px}
 .sec-head p{margin:0;color:var(--muted);max-width:560px}
@@ -67,18 +76,19 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 .tl .body{border-left:2px solid var(--line);padding:0 0 64px 36px;position:relative}
 .tl .body::before{content:"";position:absolute;left:-8px;top:10px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--accent-2)}
 .tl .body.now::before{background:var(--accent);border-color:var(--accent)}
-.tl .body p{font-family:"Gowun Batang",serif;font-size:18.5px;line-height:2.05;margin:0 0 20px;max-width:640px}
-.pair{display:flex;gap:18px;align-items:center;margin:8px 0 0;padding:18px 22px;background:var(--paper);border:1px solid var(--line);border-radius:12px;max-width:640px}
+.tl .body p{font-family:"Gowun Batang",serif;font-size:18.5px;line-height:2.05;margin:0 0 20px;max-width:760px}
+.pair{display:flex;gap:18px;align-items:center;margin:8px 0 0;padding:18px 22px;background:var(--paper);border:1px solid var(--line);border-radius:12px;max-width:760px}
 .pair .big{font-family:"IBM Plex Mono",monospace;font-size:40px;font-weight:500;color:var(--accent-2);line-height:1}
 .pair .t{font-size:15px;line-height:1.65}
 .pair .src{font-size:12.5px;color:var(--muted);margin-top:4px}
 .closing{grid-column:2;font-family:"Gowun Batang",serif;font-size:clamp(22px,2.6vw,27px);line-height:1.65;margin:8px 0 0;padding-top:28px;border-top:1px solid var(--line)}
 
 .now-para{grid-column:2}
-.now-para p{font-family:"Gowun Batang",serif;font-size:18.5px;line-height:2.05;margin:0 0 20px;max-width:640px}
+.now-para p{font-family:"Gowun Batang",serif;font-size:18.5px;line-height:2.05;margin:0 0 20px;max-width:760px}
 /* numbers - light band */
 #numbers{background:var(--soft);border-top:1px solid var(--line)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media (max-width:1100px){.stats{grid-template-columns:repeat(3,1fr)}}
 .stat{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:24px 20px 20px;border-top:4px solid var(--accent)}
 .stat:first-child{border-top-color:var(--accent-2)}
 .stat .v{font-family:"IBM Plex Mono",monospace;font-size:clamp(34px,4vw,46px);font-weight:500;line-height:1;color:var(--accent)}
@@ -132,6 +142,40 @@ footer .bye{font-family:"Gowun Batang",serif;font-size:clamp(24px,3vw,32px);marg
 footer .mail{font-size:18px;font-weight:500;text-decoration:underline;text-underline-offset:5px;text-decoration-color:var(--accent-2)}
 footer .small{font-size:12.5px;color:var(--muted)}
 
+
+/* status, cmd */
+.nav-l{display:flex;align-items:center;gap:14px}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--paper)}
+.status i{width:7px;height:7px;border-radius:50%;background:#2fa36b;box-shadow:0 0 0 0 rgba(47,163,107,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,163,107,.45)}70%{box-shadow:0 0 0 7px rgba(47,163,107,0)}100%{box-shadow:0 0 0 0 rgba(47,163,107,0)}}
+.cmd{font-size:15px;color:var(--accent-2);margin:0 0 14px;min-height:1.6em}
+.caret{display:inline-block;width:9px;height:1.05em;background:var(--accent-2);vertical-align:-2px;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.proj{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,box-shadow .2s}
+.proj:hover{transform:translateY(-3px);box-shadow:0 14px 30px -22px rgba(0,0,0,.4)}
+.proj .top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+.proj .live{display:inline-flex;align-items:center;gap:6px;color:#2f8f5f;font-weight:600}
+.proj .live i{width:7px;height:7px;border-radius:50%;background:#2fa36b}
+.proj .wip{color:var(--accent-2);font-weight:600}
+.proj h3{font-size:17px;margin:2px 0 0;line-height:1.4}
+.proj p{margin:0;font-size:14px;color:var(--muted);line-height:1.65;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:11.5px;padding:2px 8px;border-radius:6px;background:var(--soft);color:var(--accent)}
+.links{display:flex;gap:14px;font-size:13.5px;font-weight:600;margin-top:6px}
+.links a{color:var(--accent);text-decoration:none} .links a:hover{text-decoration:underline}
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.skill{border-top:2px solid var(--ink);padding-top:14px}
+.skill h4{margin:0 0 12px;font-size:14px;color:var(--muted);font-weight:500}
+.skill .chips{display:flex;flex-wrap:wrap;gap:8px}
+.skill .chips span{font-family:"IBM Plex Mono",monospace;font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+@media (max-width:1100px){.projects{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:900px){.skills{grid-template-columns:1fr}}
+@media (max-width:600px){.projects{grid-template-columns:1fr}.status{display:none}}
+@media (prefers-reduced-motion:reduce){.status i,.caret{animation:none}.proj{transition:none}}
+footer .small a{color:var(--accent)}
 @media (max-width:900px){
   .hero .grid,.sec-head,.story,.tl,.works,.resume{grid-template-columns:1fr;gap:24px}
   .lead,.closing,.now-para{grid-column:1}
@@ -146,8 +190,8 @@ footer .small{font-size:12.5px;color:var(--muted)}
 </style>
 </head>
 <body>
-<nav><div class="wrap"><span class="me" id="nav-name"></span>
-  <ul><li><a href="#story">이야기</a></li><li><a href="#numbers">숫자</a></li><li><a href="#works">대표작</a></li><li><a href="#resume">이력서</a></li><li><a href="#update">업데이트</a></li></ul>
+<nav><div class="wrap"><span class="nav-l"><span class="me" id="nav-name"></span><span class="status mono" id="status"><i></i><span id="status-t"></span></span></span>
+  <ul><li><a href="#story">이야기</a></li><li><a href="#numbers">숫자</a></li><li><a href="#works">대표작</a></li><li><a href="#projects">만든 것</a></li><li><a href="#resume">이력서</a></li></ul>
 </div></nav>
 
 <header class="hero">
@@ -158,6 +202,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
   <div class="wrap grid">
     <div>
       <p class="eyebrow mono" id="role"></p>
+      <p class="cmd mono" aria-hidden="true"><span id="cmd"></span><b class="caret"></b></p>
       <h1 id="name"></h1>
       <p class="tag"><em id="tagline"></em></p>
     </div>
@@ -166,6 +211,7 @@ footer .small{font-size:12.5px;color:var(--muted)}
       <div class="row"><span class="k">이전</span><span class="v">도서관·학교·센터</span></div>
       <div class="row"><span class="k">기록</span><span class="v" id="id-rec"></span></div>
       <div class="row"><span class="k">연락</span><span class="v"><a id="email"></a></span></div>
+      <div class="row"><span class="k">GitHub</span><span class="v"><a id="gh" target="_blank" rel="noopener"></a></span></div>
       <div class="btns"><a class="primary" href="#story">이야기 읽기</a><a href="#works">대표작 보기</a></div>
     </div>
   </div>
@@ -194,8 +240,18 @@ footer .small{font-size:12.5px;color:var(--muted)}
   <div class="works" id="worklist"></div>
 </div></section>
 
+<section id="projects"><div class="wrap">
+  <div class="sec-head"><div class="num mono">04 · PROJECTS</div><div><h2>만든 것</h2><p>과정에서 직접 만들고 배포한 것들입니다. 바로 열어 써 보실 수 있습니다.</p></div></div>
+  <div class="projects" id="projlist"></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="sec-head"><div class="num mono">05 · SKILLS</div><div><h2>써 본 기술</h2><p>과제와 실습에서 직접 써 본 것만 적었습니다.</p></div></div>
+  <div class="skills" id="skilllist"></div>
+</div></section>
+
 <section id="resume"><div class="wrap">
-  <div class="sec-head"><div class="num mono">04 · RESUME</div><div><h2>이력서</h2><p>이력서·자기소개서·경력기술서 문서는 지원서와 함께 따로 보내 드립니다.</p></div></div>
+  <div class="sec-head"><div class="num mono">06 · RESUME</div><div><h2>이력서</h2><p>이력서·자기소개서·경력기술서 문서는 지원서와 함께 따로 보내 드립니다.</p></div></div>
   <div class="resume">
     <div class="rbox"><h4>경력</h4><ul>
       <li><span>SKT ALEPH AI 인프라보안 과정</span><span class="p">2026.08 –</span></li>
@@ -213,22 +269,11 @@ footer .small{font-size:12.5px;color:var(--muted)}
   </div>
 </div></section>
 
-<section id="update"><div class="wrap">
-  <div class="sec-head"><div class="num mono">05 · UPDATE</div><div><h2>이 사이트는 기록으로 다시 쓰입니다</h2><p>숫자 칸과 기록에서 고른 문장은 손으로 고치지 않습니다. 새 기록을 넣고 장치를 한 번 돌리면 다시 만들어집니다.</p></div></div>
-  <ol class="flow">
-    <li><span class="mono">01 · INPUT</span><b>새 기록 넣기</b><span>리추얼 기록, 출석 숫자, 과제 목록, 방어전 단계</span></li>
-    <li><span class="mono">02 · BUILD</span><b>장치 실행</b><span><code>python build.py --site ..</code> · AI 호출 없이 같은 입력에 같은 결과</span></li>
-    <li><span class="mono">03 · REVIEW</span><b>문단 후보 승인</b><span>능력별 후보 5개씩, 날짜·근거와 함께 · 승인한 문장만 사이트에 실림</span></li>
-    <li><span class="mono">04 · DEPLOY</span><b>사이트 반영</b><span>바뀐 데이터 파일을 올리면 자동 배포</span></li>
-  </ol>
-  <p class="build mono" id="build"></p>
-  <p class="devlink"><a href="https://github.com/gaeun1210/about-me-story/tree/main/device" target="_blank" rel="noopener">장치 코드와 사용법 보기 (GitHub)</a></p>
-</div></section>
 </main>
 
 <footer><div class="wrap">
   <div><p class="bye">함께 일할 이야기를 기다립니다.</p><a class="mail" id="email2"></a></div>
-  <div class="small" id="foot"></div>
+  <div class="small mono" id="foot"></div>
 </div></footer>
 
 <script src="data.js"></script>
@@ -250,14 +295,43 @@ footer .small{font-size:12.5px;color:var(--muted)}
     $("chapters").appendChild(side);$("chapters").appendChild(body);
   });
   n.items.forEach(function(it){var c=el("div","stat");c.appendChild(el("div","v",it.value));c.appendChild(el("div","l",it.label));c.appendChild(el("div","d",it.detail));c.appendChild(el("div","s","출처 · "+it.source));$("stats").appendChild(c);});
-  $("asof").textContent=n.as_of+" 기준";var ap=0;Object.keys(D.approved||{}).forEach(function(k){ap+=D.approved[k].length;});$("build").textContent="마지막 갱신 "+n.as_of+" · 숫자 "+n.items.length+"개 · 승인된 기록 문장 "+ap+"개";
+  $("asof").textContent=n.as_of+" 기준";var ap=0;/*build*/Object.keys(D.approved||{}).forEach(function(k){ap+=D.approved[k].length;});
   Object.keys(D.approved||{}).sort().forEach(function(k){D.approved[k].forEach(function(q){var b=el("div","q");b.appendChild(el("div","ab",k));b.appendChild(el("p",null,"“"+q.text+"”"));b.appendChild(el("div","s",q.source));$("quotes").appendChild(b);});});
   p.works.forEach(function(w,i){
     var c=el("article","work"+(w.link?"":" pending"));c.appendChild(el("div","kind",w.kind+" · "+w.date));c.appendChild(el("h3",null,w.title));c.appendChild(el("p",null,w.summary));
     if(i===0){var f=el("div","figure");[["25.0%",100,"var(--accent-2)"],["3.3%",13,"var(--line)"]].forEach(function(b){var x=el("div","bar");x.style.height=b[1]+"%";x.style.background=b[2];x.appendChild(el("span",null,b[0]));f.appendChild(x);});c.appendChild(f);var cap=el("div","figure-cap");cap.appendChild(el("div",null,"줄임말형 가짜 단어"));cap.appendChild(el("div",null,"무작위 음절 단어"));c.appendChild(cap);}
     var a=el(w.link?"a":"span","btn",w.link_label);if(w.link){a.href=w.link;a.target="_blank";a.rel="noopener";}c.appendChild(a);$("worklist").appendChild(c);
   });
-  $("foot").textContent="© "+p.name+" · 숫자와 기록 문장은 장치(build.py)로 "+n.as_of+"에 다시 만들었습니다.";
+  var foot=$("foot");foot.appendChild(document.createTextNode("마지막 갱신 "+n.as_of+" · 숫자 "+n.items.length+"개 · 승인된 기록 문장 "+ap+"개 · "));
+  var dl=el("a",null,"갱신 장치 보기");dl.href="https://github.com/gaeun1210/about-me-story/tree/main/device";dl.target="_blank";dl.rel="noopener";foot.appendChild(dl);
+  foot.appendChild(document.createTextNode(" · © "+p.name));
+  $("status-t").textContent="정상 · build "+n.as_of;
+  var gh=$("gh");gh.textContent=p.github.replace("https://","");gh.href=p.github;
+  (p.projects||[]).forEach(function(x){
+    var c=el("article","proj"),top=el("div","top");top.appendChild(el("span","mono",x.date));
+    if(x.live){var lv=el("span","live");lv.appendChild(el("i"));lv.appendChild(document.createTextNode(x.status?"LIVE · "+x.status:"LIVE"));top.appendChild(lv);}
+    else top.appendChild(el("span","wip",x.status||""));
+    c.appendChild(top);c.appendChild(el("h3",null,x.title));c.appendChild(el("p",null,x.summary));
+    var tg=el("div","tags");x.stack.forEach(function(s){tg.appendChild(el("span",null,s));});c.appendChild(tg);
+    var ln=el("div","links");if(x.live){var a=el("a",null,"열어 보기 ↗");a.href=x.live;a.target="_blank";a.rel="noopener";ln.appendChild(a);}
+    if(x.repo){var g=el("a",null,"GitHub ↗");g.href=x.repo;g.target="_blank";g.rel="noopener";ln.appendChild(g);}
+    c.appendChild(ln);$("projlist").appendChild(c);});
+  (p.skills||[]).forEach(function(g){var b=el("div","skill");b.appendChild(el("h4",null,g.group));var cs=el("div","chips");g.items.forEach(function(i){cs.appendChild(el("span",null,i));});b.appendChild(cs);$("skilllist").appendChild(b);});
+
+  var still=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* typing */
+  var cmd="$ whoami",tag=$("tagline"),full=p.tagline;
+  if(still){$("cmd").textContent=cmd;}else{
+    tag.textContent="";tag.setAttribute("aria-label",full);var i=0,j=0;
+    (function t1(){if(i<=cmd.length){$("cmd").textContent=cmd.slice(0,i++);setTimeout(t1,70);}else setTimeout(t2,250);})();
+    function t2(){if(j<=full.length){tag.textContent=full.slice(0,j++);setTimeout(t2,32);}}
+  }
+  /* count-up */
+  var vs=[].slice.call(document.querySelectorAll(".stat .v"));
+  function run(e){var orig=e.getAttribute("data-v"),t0=null;function f(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1100),ease=1-Math.pow(1-k,3);
+    e.textContent=orig.replace(/\d+/g,function(m){return String(Math.round(+m*ease));});if(k<1)requestAnimationFrame(f);}requestAnimationFrame(f);}
+  vs.forEach(function(e){e.setAttribute("data-v",e.textContent);});
+  if(!still&&"IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){run(x.target);io.unobserve(x.target);}});},{threshold:.5});vs.forEach(function(e){io.observe(e);});}
 })();
 </script>
 </body>

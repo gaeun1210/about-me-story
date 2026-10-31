@@ -20,5 +20,135 @@
       "link": "",
       "link_label": "2026년 11월 2일 공개 예정"
     }
+  ],
+  "github": "https://github.com/gaeun1210",
+  "projects": [
+    {
+      "title": "케셰브 · ZTNA·XDR 보안 Agent",
+      "date": "2026.10 –",
+      "status": "제작 중",
+      "summary": "직원이 자기 로그인 상태, 업무 앱 접속 판정, 접속 기록과 XDR 경보를 한 화면에서 보는 보안 앱입니다. 방어전 22단계를 마치고 PC 앱으로 완성하고 있습니다.",
+      "stack": [
+        "Node.js",
+        "ZTNA",
+        "XDR"
+      ],
+      "live": "",
+      "repo": "https://github.com/gaeun1210/keshev-defense"
+    },
+    {
+      "title": "패스키로 잠근 소개 페이지",
+      "date": "2026.10.20",
+      "status": "",
+      "summary": "패스키(WebAuthn)로 비공개 영역을 잠그고, 로그인 없이 요청하면 401로 막히는지 직접 확인했습니다.",
+      "stack": [
+        "WebAuthn",
+        "SimpleWebAuthn"
+      ],
+      "live": "https://about-me-passkey-five.vercel.app",
+      "repo": "https://github.com/gaeun1210/about-me-passkey"
+    },
+    {
+      "title": "다이어리 가입·로그인",
+      "date": "2026.10.19",
+      "status": "가입 후 사용",
+      "summary": "가입·로그인과 사용자별 데이터 분리를 붙이고, 비밀번호가 해시로 저장되는지 데이터베이스에서 확인했습니다.",
+      "stack": [
+        "Neon",
+        "PostgreSQL"
+      ],
+      "live": "https://plandosee-diary-2.vercel.app",
+      "repo": "https://github.com/gaeun1210/plandosee-diary-2"
+    },
+    {
+      "title": "플랜두씨 다이어리",
+      "date": "2026.10.11",
+      "status": "",
+      "summary": "계획·실행·돌아보기를 기록하고, 막힌 횟수와 그 근거를 함께 남기는 다이어리입니다.",
+      "stack": [
+        "Supabase",
+        "Vercel"
+      ],
+      "live": "https://plandosee-diary-ten.vercel.app/?plan=1",
+      "repo": "https://github.com/gaeun1210/plandosee-diary"
+    },
+    {
+      "title": "동성로 기온 정보판",
+      "date": "2026.10.08",
+      "status": "",
+      "summary": "공개 날씨 데이터를 받아 보여 주고, 실패 다섯 가지를 재생하고 복구하는 장애 재생실을 만들었습니다.",
+      "stack": [
+        "Open-Meteo API",
+        "장애 대응"
+      ],
+      "live": "https://informationboard-omega.vercel.app",
+      "repo": "https://github.com/gaeun1210/InformationBoard"
+    },
+    {
+      "title": "두 AI 인수인계 개선",
+      "date": "2026.10.09",
+      "status": "",
+      "summary": "두 AI가 인수인계 문서로 작업을 이어받아 기능을 개선했고, 검사 10개를 모두 통과했습니다.",
+      "stack": [
+        "인수인계 문서",
+        "자동 검사"
+      ],
+      "live": "https://ai-handoff-relay.vercel.app/tests.html",
+      "repo": "https://github.com/gaeun1210/zzalstudio"
+    },
+    {
+      "title": "짤 카드 스튜디오",
+      "date": "2026.10.05",
+      "status": "",
+      "summary": "이미지에 문구를 얹어 세 가지 비율로 저장하고, 화면과 저장 파일이 픽셀 단위로 같은지 대조합니다.",
+      "stack": [
+        "Canvas",
+        "JavaScript"
+      ],
+      "live": "https://zzalstudio.vercel.app",
+      "repo": "https://github.com/gaeun1210/zzalstudio"
+    },
+    {
+      "title": "코어 싱크 30",
+      "date": "2026.09.29",
+      "status": "",
+      "summary": "30초 안에 10번 명중시키는 타이밍 게임으로, 마우스·키보드·터치에서 같은 판정이 나오게 했습니다.",
+      "stack": [
+        "JavaScript",
+        "게임"
+      ],
+      "live": "https://minigame-ruddy-zeta.vercel.app",
+      "repo": "https://github.com/gaeun1210/Mini-Game"
+    }
+  ],
+  "skills": [
+    {
+      "group": "인프라·보안",
+      "items": [
+        "Linux",
+        "네트워크 라우팅 (GNS3)",
+        "웹 서버 구축",
+        "Zabbix 모니터링",
+        "패스키 (WebAuthn)",
+        "ZTNA·XDR"
+      ]
+    },
+    {
+      "group": "개발",
+      "items": [
+        "HTML·CSS·JavaScript",
+        "Node.js",
+        "Python"
+      ]
+    },
+    {
+      "group": "데이터·배포",
+      "items": [
+        "Supabase",
+        "Neon (PostgreSQL)",
+        "Vercel",
+        "Git·GitHub"
+      ]
+    }
   ]
 }
