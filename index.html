@@ -406,13 +406,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
         c.title=k+(set[k]?" · 기록함":"");grid.appendChild(c);
       }
       ttl.textContent=y+"년 "+(mo+1)+"월 · 기록 "+cnt+"일";
+      var aug=(y===2026&&mo===7);if(window._co){_co.style.display=aug?"":"none";_mk.style.display=aug?"":"none";}
       prev.disabled=mi===0;next.disabled=mi===months.length-1;
     }
     prev.onclick=function(){if(mi>0){mi--;draw();}};next.onclick=function(){if(mi<months.length-1){mi++;draw();}};
     draw();
     var lg=el("div","legend");[["var(--accent)","기록한 날"],["var(--line)","휴일(훈련 없음)"],["transparent","주말"]].forEach(function(x){var s=el("span");var b=el("i");b.style.background=x[0];if(x[0]==="transparent")b.style.border="1px dashed var(--line-2)";s.appendChild(b);s.appendChild(document.createTextNode(x[1]));lg.appendChild(s);});
     var mk=el("span");var mb=el("i");mb.style.outline="2px solid var(--hot)";mb.style.background="var(--accent)";mk.appendChild(mb);mk.appendChild(document.createTextNode("8월 27일(고난 장면)"));lg.appendChild(mk);P.appendChild(lg);
-    var co=el("div","callout");co.appendChild(el("b",null,n.pairing.label+" "+n.pairing.value));co.appendChild(el("br"));co.appendChild(document.createTextNode(n.pairing.text));P.appendChild(co);
+    var co=el("div","callout");co.appendChild(el("b",null,n.pairing.label+" "+n.pairing.value));co.appendChild(el("br"));co.appendChild(document.createTextNode(n.pairing.text));P.appendChild(co);window._co=co;window._mk=mk;draw();
   })();
   /* rings */
   function ring(it,label,center,sub){
