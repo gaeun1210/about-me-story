@@ -111,7 +111,16 @@ section{padding:104px 0;border-bottom:1px solid var(--line)}
 .panel .src{font-size:12.5px;color:var(--muted)}
 .big{font-family:var(--mono);font-weight:700;color:var(--accent);line-height:1;font-size:clamp(46px,5vw,64px)}
 .big small{font-size:.42em;color:var(--muted);font-weight:500;margin-left:6px}
-.calwrap{display:flex;gap:10px;margin:24px 0 10px;overflow-x:auto}
+.cal2{display:grid;grid-template-columns:38px repeat(7,26px);grid-auto-rows:26px;gap:6px;align-items:center}
+.cal2 .dh{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center}
+.cal2 .mh{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.cal2 .c{width:26px;height:26px;border-radius:6px;background:var(--line);position:relative}
+.cal2 .c.on{background:var(--accent)}
+.cal2 .c.wk{background:transparent;border:1px dashed var(--line-2)}
+.cal2 .c.f3.on{background:var(--hot)}
+.cal2 .c.mark{outline:2.5px solid var(--ink);outline-offset:1px}
+.cal2 .c.pad{visibility:hidden}
+.calwrap{display:flex;justify-content:center;gap:10px;margin:24px 0 10px;overflow-x:auto}
 .days{display:grid;grid-template-rows:repeat(7,26px);gap:6px;font-family:var(--mono);font-size:11.5px;color:var(--muted);align-items:center}
 .cal{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,26px);grid-auto-columns:26px;gap:6px}
 .cal .c{width:26px;height:26px;border-radius:6px;background:var(--line);position:relative}
@@ -363,9 +372,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
     var st=D0(C.start),en=D0(C.end),f3=D0(C.first3_end),wd=(st.getUTCDay()+6)%7,cur=new Date(st.getTime()-wd*864e5);
     var it=item("ritual_days"),P=$("p-cal"),ph=el("div","ph");ph.appendChild(el("span","pt","리추얼 기록"));ph.appendChild(el("span","src","출처 · "+it.source));P.appendChild(ph);
     var bg=el("div","big",it.value);P.appendChild(bg);
-    var cal=el("div","cal"),months=[],col=0,lastM=-1;
+    var cal=el("div","cal2"),lastM=-1;
+    cal.appendChild(el("span","mh",""));["월","화","수","목","금","토","일"].forEach(function(x){cal.appendChild(el("span","dh",x));});
     while(cur<=en||((cur.getUTCDay()+6)%7)!==0){
-      var dw=(cur.getUTCDay()+6)%7;if(dw===0){var m=cur.getUTCMonth();if(m!==lastM){months.push([col,(m+1)+"월"]);lastM=m;}col++;}
+      var dw=(cur.getUTCDay()+6)%7;
+      if(dw===0){var lab="",probe=cur;for(var q=0;q<7;q++){var pd=new Date(cur.getTime()+q*864e5);if(pd>=st&&pd<=en){probe=pd;break;}}
+        var m=probe.getUTCMonth();if(m!==lastM){lab=(m+1)+"월";lastM=m;}cal.appendChild(el("span","mh",lab));}
       var c=el("i","c"),k=iso(cur);
       if(cur<st||cur>en)c.className+=" pad";
       else if(set[k]){c.className+=" on";if(cur<=f3)c.className+=" f3";}
@@ -373,8 +385,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
       if(k==="2026-08-27")c.className+=" mark";
       c.title=k+(set[k]?" · 기록함":"");cal.appendChild(c);cur=new Date(cur.getTime()+864e5);
     }
-    var cw=el("div","calwrap"),dy=el("div","days");["월","화","수","목","금","토","일"].forEach(function(x){dy.appendChild(el("span",null,x));});cw.appendChild(cal);cw.appendChild(dy);P.appendChild(cw);
-    var mo=el("div","months");months.forEach(function(x){var s=el("span",null,x[1]);s.style.left=(x[0]*32)+"px";mo.appendChild(s);});P.appendChild(mo);
+    var cw=el("div","calwrap");cw.appendChild(cal);P.appendChild(cw);
     var lg=el("div","legend");[["var(--hot)","첫 3주 기록"],["var(--accent)","기록한 날"],["var(--line)","휴일(훈련 없음)"],["transparent","주말"]].forEach(function(x){var s=el("span");var b=el("i");b.style.background=x[0];if(x[0]==="transparent")b.style.border="1px dashed var(--line-2)";s.appendChild(b);s.appendChild(document.createTextNode(x[1]));lg.appendChild(s);});
     var mk=el("span");var mb=el("i");mb.style.outline="2px solid var(--ink)";mb.style.background="var(--hot)";mk.appendChild(mb);mk.appendChild(document.createTextNode("8월 27일"));lg.appendChild(mk);P.appendChild(lg);
     var co=el("div","callout");co.appendChild(el("b",null,n.pairing.scene+" · "+n.pairing.value+" "));co.appendChild(document.createTextNode(n.pairing.text));P.appendChild(co);
