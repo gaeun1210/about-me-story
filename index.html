@@ -82,6 +82,7 @@ section{padding:104px 0;border-bottom:1px solid var(--line)}
 .sec-head .num{font-family:var(--mono);font-size:13px;color:var(--hot);font-weight:500;padding-top:12px}
 .sec-head h2{font-size:clamp(32px,3.6vw,44px);font-weight:800;line-height:1.25;margin:0 0 12px;letter-spacing:-.03em}
 .sec-head p{margin:0;color:var(--muted);font-size:17px;max-width:680px}
+.sec-head p.one{max-width:none}
 .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 .head-row .btn{flex:none}
 
@@ -119,7 +120,7 @@ section{padding:104px 0;border-bottom:1px solid var(--line)}
 .cal .c.f3.on{background:var(--hot)}
 .cal .c.mark{outline:2.5px solid var(--ink);outline-offset:1px}
 .cal .c.pad{visibility:hidden}
-.months{position:relative;height:18px;margin-left:30px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.months{position:relative;height:18px;margin-left:0;font-family:var(--mono);font-size:12px;color:var(--muted)}
 .months span{position:absolute;top:0}
 .panel .ph .big{font-size:clamp(40px,4vw,54px)}
 .calhead{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
@@ -186,7 +187,7 @@ section{padding:104px 0;border-bottom:1px solid var(--line)}
 .badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
 .badge i{width:7px;height:7px;border-radius:50%;background:currentColor}
 .badge.wip{background:var(--hot-soft);color:var(--hot)}
-.pane .sum{font-size:17.5px;line-height:1.85;color:var(--ink);margin:0 0 20px;max-width:640px}
+.pane .sum{font-size:17.5px;line-height:1.85;color:var(--ink);margin:0 0 20px;text-align:justify;word-break:keep-all}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
 .tags span{font-family:var(--mono);font-size:13px;padding:4px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-weight:500}
 .actions{display:flex;gap:10px;flex-wrap:wrap}
@@ -285,7 +286,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
 </div></section>
 
 <section id="projects"><div class="wrap">
-  <div class="sec-head"><div class="num">04 · PROJECTS</div><div><h2>만든 것</h2><p>왼쪽 목록에서 프로젝트를 고르면 설명과 링크가 열립니다. 초록 점은 지금 바로 써 볼 수 있는 서비스입니다.</p></div></div>
+  <div class="sec-head"><div class="num">04 · PROJECTS</div><div><h2>만든 것</h2><p class="one">왼쪽 목록에서 프로젝트를 고르면 설명과 링크가 열립니다. 초록 점은 지금 바로 써 볼 수 있는 서비스입니다.</p></div></div>
   <div class="term rv">
     <div class="term-bar"><i></i><i></i><i></i><span id="term-title">gaeun@aleph: ~/projects</span></div>
     <div class="term-body">
@@ -372,7 +373,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
       if(k==="2026-08-27")c.className+=" mark";
       c.title=k+(set[k]?" · 기록함":"");cal.appendChild(c);cur=new Date(cur.getTime()+864e5);
     }
-    var cw=el("div","calwrap"),dy=el("div","days");["월","","수","","금","","일"].forEach(function(x){dy.appendChild(el("span",null,x));});cw.appendChild(dy);cw.appendChild(cal);P.appendChild(cw);
+    var cw=el("div","calwrap"),dy=el("div","days");["월","화","수","목","금","토","일"].forEach(function(x){dy.appendChild(el("span",null,x));});cw.appendChild(cal);cw.appendChild(dy);P.appendChild(cw);
     var mo=el("div","months");months.forEach(function(x){var s=el("span",null,x[1]);s.style.left=(x[0]*32)+"px";mo.appendChild(s);});P.appendChild(mo);
     var lg=el("div","legend");[["var(--hot)","첫 3주 기록"],["var(--accent)","기록한 날"],["var(--line)","휴일(훈련 없음)"],["transparent","주말"]].forEach(function(x){var s=el("span");var b=el("i");b.style.background=x[0];if(x[0]==="transparent")b.style.border="1px dashed var(--line-2)";s.appendChild(b);s.appendChild(document.createTextNode(x[1]));lg.appendChild(s);});
     var mk=el("span");var mb=el("i");mb.style.outline="2px solid var(--ink)";mb.style.background="var(--hot)";mk.appendChild(mb);mk.appendChild(document.createTextNode("8월 27일"));lg.appendChild(mk);P.appendChild(lg);
