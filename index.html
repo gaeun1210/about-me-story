@@ -111,6 +111,19 @@ section{padding:104px 0;border-bottom:1px solid var(--line)}
 .panel .src{font-size:12.5px;color:var(--muted)}
 .big{font-family:var(--mono);font-weight:700;color:var(--accent);line-height:1;font-size:clamp(46px,5vw,64px)}
 .big small{font-size:.42em;color:var(--muted);font-weight:500;margin-left:6px}
+.mnav{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px 0 12px}
+.mttl{font-weight:800;color:var(--ink);font-size:15px;min-width:190px;text-align:center}
+.mbtn{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);font-size:18px;line-height:1;cursor:pointer;font-family:inherit}
+.mbtn:hover:not(:disabled){border-color:var(--ink)}.mbtn:disabled{opacity:.3;cursor:default}
+.mcal{display:grid;grid-template-columns:repeat(7,minmax(0,44px));gap:6px;justify-content:center}
+.mcal .dh{font-size:12.5px;color:var(--muted);text-align:center;font-weight:700;padding-bottom:2px}
+.mcal .c{height:38px;border-radius:8px;background:transparent;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-style:normal;font-size:13px;color:var(--muted)}
+.mcal .c.on{background:var(--accent);color:#fff;font-weight:700}
+.mcal .c.hol{background:var(--line);color:var(--muted)}
+.mcal .c.wk{border:1px dashed var(--line-2)}
+.mcal .c.out{opacity:.35}
+.mcal .c.pad{visibility:hidden}
+.mcal .c.mark{outline:3px solid var(--hot);outline-offset:1px}
 .cal2{display:grid;grid-template-columns:38px repeat(7,26px);grid-auto-rows:26px;gap:6px;align-items:center}
 .cal2 .dh{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center}
 .cal2 .mh{font-family:var(--mono);font-size:12px;color:var(--muted)}
@@ -372,23 +385,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
     var st=D0(C.start),en=D0(C.end),f3=D0(C.first3_end),wd=(st.getUTCDay()+6)%7,cur=new Date(st.getTime()-wd*864e5);
     var it=item("ritual_days"),P=$("p-cal"),ph=el("div","ph");ph.appendChild(el("span","pt","리추얼 기록"));ph.appendChild(el("span","src","출처 · "+it.source));P.appendChild(ph);
     var bg=el("div","big",it.value);P.appendChild(bg);
-    var cal=el("div","cal2"),lastM=-1;
-    cal.appendChild(el("span","mh",""));["월","화","수","목","금","토","일"].forEach(function(x){cal.appendChild(el("span","dh",x));});
-    while(cur<=en||((cur.getUTCDay()+6)%7)!==0){
-      var dw=(cur.getUTCDay()+6)%7;
-      if(dw===0){var lab="",probe=cur;for(var q=0;q<7;q++){var pd=new Date(cur.getTime()+q*864e5);if(pd>=st&&pd<=en){probe=pd;break;}}
-        var m=probe.getUTCMonth();if(m!==lastM){lab=(m+1)+"월";lastM=m;}cal.appendChild(el("span","mh",lab));}
-      var c=el("i","c"),k=iso(cur);
-      if(cur<st||cur>en)c.className+=" pad";
-      else if(set[k]){c.className+=" on";if(cur<=f3)c.className+=" f3";}
-      else if(dw>=5)c.className+=" wk";
-      if(k==="2026-08-27")c.className+=" mark";
-      c.title=k+(set[k]?" · 기록함":"");cal.appendChild(c);cur=new Date(cur.getTime()+864e5);
+    var months=[],mc=new Date(Date.UTC(st.getUTCFullYear(),st.getUTCMonth(),1));
+    while(mc<=en){months.push(new Date(mc));mc=new Date(Date.UTC(mc.getUTCFullYear(),mc.getUTCMonth()+1,1));}
+    var mi=0,nav=el("div","mnav"),prev=el("button","mbtn","‹"),ttl=el("span","mttl"),next=el("button","mbtn","›");
+    prev.type=next.type="button";prev.setAttribute("aria-label","이전 달");next.setAttribute("aria-label","다음 달");
+    nav.appendChild(prev);nav.appendChild(ttl);nav.appendChild(next);P.appendChild(nav);
+    var grid=el("div","mcal");P.appendChild(grid);
+    function draw(){
+      var m0=months[mi],y=m0.getUTCFullYear(),mo=m0.getUTCMonth(),cnt=0;grid.innerHTML="";
+      ["월","화","수","목","금","토","일"].forEach(function(x){grid.appendChild(el("span","dh",x));});
+      var off=(m0.getUTCDay()+6)%7;for(var q=0;q<off;q++)grid.appendChild(el("i","c pad"));
+      var dn=new Date(Date.UTC(y,mo+1,0)).getUTCDate();
+      for(var d=1;d<=dn;d++){
+        var cur=new Date(Date.UTC(y,mo,d)),k=iso(cur),dw=(cur.getUTCDay()+6)%7,c=el("i","c",String(d));
+        if(cur<st||cur>en)c.className+=" out";
+        else if(set[k]){c.className+=" on";cnt++;}
+        else if(dw>=5)c.className+=" wk";
+        else c.className+=" hol";
+        if(k==="2026-08-27")c.className+=" mark";
+        c.title=k+(set[k]?" · 기록함":"");grid.appendChild(c);
+      }
+      ttl.textContent=y+"년 "+(mo+1)+"월 · 기록 "+cnt+"일";
+      prev.disabled=mi===0;next.disabled=mi===months.length-1;
     }
-    var cw=el("div","calwrap");cw.appendChild(cal);P.appendChild(cw);
-    var lg=el("div","legend");[["var(--hot)","첫 3주 기록"],["var(--accent)","기록한 날"],["var(--line)","휴일(훈련 없음)"],["transparent","주말"]].forEach(function(x){var s=el("span");var b=el("i");b.style.background=x[0];if(x[0]==="transparent")b.style.border="1px dashed var(--line-2)";s.appendChild(b);s.appendChild(document.createTextNode(x[1]));lg.appendChild(s);});
-    var mk=el("span");var mb=el("i");mb.style.outline="2px solid var(--ink)";mb.style.background="var(--hot)";mk.appendChild(mb);mk.appendChild(document.createTextNode("8월 27일"));lg.appendChild(mk);P.appendChild(lg);
-    var co=el("div","callout");co.appendChild(el("b",null,n.pairing.scene+" · "+n.pairing.value+" "));co.appendChild(document.createTextNode(n.pairing.text));P.appendChild(co);
+    prev.onclick=function(){if(mi>0){mi--;draw();}};next.onclick=function(){if(mi<months.length-1){mi++;draw();}};
+    draw();
+    var lg=el("div","legend");[["var(--accent)","기록한 날"],["var(--line)","휴일(훈련 없음)"],["transparent","주말"]].forEach(function(x){var s=el("span");var b=el("i");b.style.background=x[0];if(x[0]==="transparent")b.style.border="1px dashed var(--line-2)";s.appendChild(b);s.appendChild(document.createTextNode(x[1]));lg.appendChild(s);});
+    var mk=el("span");var mb=el("i");mb.style.outline="2px solid var(--hot)";mb.style.background="var(--accent)";mk.appendChild(mb);mk.appendChild(document.createTextNode("8월 27일(고난 장면)"));lg.appendChild(mk);P.appendChild(lg);
+    var co=el("div","callout");co.appendChild(el("b",null,n.pairing.label+" "+n.pairing.value));co.appendChild(el("br"));co.appendChild(document.createTextNode(n.pairing.text));P.appendChild(co);
   })();
   /* rings */
   function ring(it,label,center,sub){
