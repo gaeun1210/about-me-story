@@ -124,6 +124,7 @@ section{padding:104px 0;border-bottom:1px solid var(--line)}
 .mcal .c.out{opacity:.35}
 .mcal .c.pad{visibility:hidden}
 .mcal .c.mark{outline:3px solid var(--hot);outline-offset:1px}
+.gnote{margin-top:8px;font-size:12.5px;color:var(--muted);text-align:right}
 .cal2{display:grid;grid-template-columns:38px repeat(7,26px);grid-auto-rows:26px;gap:6px;align-items:center}
 .cal2 .dh{font-family:var(--mono);font-size:11.5px;color:var(--muted);text-align:center}
 .cal2 .mh{font-family:var(--mono);font-size:12px;color:var(--muted)}
@@ -433,10 +434,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
   (function(){var it=item("tasks"),P=$("p-tasks"),ph=el("div","ph");ph.appendChild(el("span","pt","과제 확인 완료"));ph.appendChild(el("span","src","출처 · 내 제출 현황"));P.appendChild(ph);
     var b=el("div","big",String(it.num));b.appendChild(el("small",null,"/ "+it.den));P.appendChild(b);
     var sg=el("div","segs");sg.style.gridTemplateColumns="repeat("+it.den+",1fr)";for(var i=0;i<it.den;i++){sg.appendChild(el("span",i<it.num?"on":"next"));}P.appendChild(sg);
-    var mi=el("div","mini");mi.appendChild(el("span",null,"01"));mi.appendChild(el("span",null,"진행 중 "+(it.den-it.num)+"개"));mi.appendChild(el("span",null,String(it.den)));P.appendChild(mi);})();
+    var mi=el("div","mini");mi.appendChild(el("span",null,"01"));mi.appendChild(el("span",null,it.den===it.num?"모두 최종 확인":"진행 중 "+(it.den-it.num)+"개"));mi.appendChild(el("span",null,String(it.den)));P.appendChild(mi);})();
   /* gratitude */
   (function(){var it=item("gratitude"),P=$("p-grat"),ph=el("div","ph");ph.appendChild(el("span","pt","감사 기록"));ph.appendChild(el("span","src","출처 · 리추얼 기록"));P.appendChild(ph);
-    var g=el("div","grat");g.appendChild(el("div","big",it.value));var sb=el("div","sub");sb.appendChild(document.createTextNode("동료가 말해 준 장점 "));sb.appendChild(el("b",null,it.extra+"개"));g.appendChild(sb);P.appendChild(g);})();
+    var g=el("div","grat");g.appendChild(el("div","big",it.value));var sb=el("div","sub");sb.appendChild(document.createTextNode("동료가 말해 준 장점 "));sb.appendChild(el("b",null,it.extra+"개"));g.appendChild(sb);P.appendChild(g);var gm=(it.detail||"").match(/\(([^)]*까지 기록 기준)\)/);if(gm){var gn=el("div","gnote",gm[1]);P.appendChild(gn);}})();
   $("asof").textContent=n.as_of+" 기준";
   var order=["자기조절력","자기동기력","대인관계력"],ap=0;
   order.forEach(function(k){(D.approved[k]||[]).forEach(function(q){ap++;var b=el("div","q rv");b.appendChild(el("div","ab",k));b.appendChild(el("p",null,"“"+q.text+"”"));b.appendChild(el("div","s",q.source));$("quotes").appendChild(b);});});

@@ -77,6 +77,14 @@ def count_numbers(ritual, att, tasks, story, defense=None):
     weekend = sum(1 for x in dates if x.weekday() >= 5)
     gratitude = sum(1 for d in days for s in d.get("close", []) if s.startswith("감사일기"))
     peer_praise = sum(1 for d in days for s in d.get("open", []) if re.match(r"동료 \d+가 말해 준 내 장점", s))
+    weeks_n = att.get("course_weeks") or elapsed_weeks
+    all_weeks = all(w in weeks_with for w in range(1, min(weeks_n, elapsed_weeks) + 1))
+    g_dates = [d["date"] for d in days if any(s.startswith("감사일기") for s in d.get("close", []))]
+    g_last = max(g_dates) if g_dates else ""
+    g_until = ""
+    if g_last and g_last < days[-1]["date"]:
+        gl = dt.date.fromisoformat(g_last)
+        g_until = f"({gl.month}월 {gl.day}일까지 기록 기준)"
     first3_end = start + dt.timedelta(days=20)
     first3 = sum(1 for x in dates if start <= x <= first3_end)
     confirmed = sum(1 for t in tasks if t["status"].strip() == "최종 확인 완료")
@@ -94,7 +102,8 @@ def count_numbers(ritual, att, tasks, story, defense=None):
             {"id": "absent", "value": f"{att['absent']}일", "label": "결석", "num": att["present"], "den": att["training_days"],
              "detail": f"훈련일 {att['training_days']}일 가운데 {att['present']}일을 출석했습니다(출석률 {att['rate_percent']}%).", "source": A},
             {"id": "ritual_days", "value": f"{len(days)}일", "label": "리추얼 기록",
-             "detail": f"과정 {elapsed_weeks}주 동안 한 주도 빠짐없이 아침과 저녁 기록을 남겼습니다.", "source": R},
+             "detail": (f"과정 {weeks_n}주 동안 한 주도 빠짐없이 아침과 저녁 기록을 남겼습니다." if all_weeks
+                        else f"과정 {weeks_n}주 가운데 {len(weeks_with)}주에 아침과 저녁 기록을 남겼습니다."), "source": R},
             {"id": "strength_done", "value": f"{done}/{len(acts)}", "label": "강점 실천", "num": done, "den": len(acts),
              "detail": f"저녁마다 그날의 강점 실천을 점검했고, {len(acts)}번 가운데 {done}번 실천했다고 적었습니다.", "source": R},
             {"id": "tasks", "value": f"{confirmed}/{len(tasks)}", "label": "과제 확인 완료", "num": confirmed, "den": len(tasks),
@@ -104,7 +113,7 @@ def count_numbers(ritual, att, tasks, story, defense=None):
              "detail": f"{defense['name']} {defense['stages_total']}단계 가운데 {defense['stages_done']}단계를 마쳤습니다.", "source": defense["source"]},
         ] if defense else []) + [
             {"id": "gratitude", "value": f"{gratitude}건", "label": "감사 기록", "num": gratitude, "extra": peer_praise,
-             "detail": f"동료와 감사를 나누며 {gratitude}건을 적었고, 동료에게서 장점 {peer_praise}개를 들었습니다.", "source": R},
+             "detail": f"동료와 감사를 나누며 {gratitude}건을 적었고, 동료에게서 장점 {peer_praise}개를 들었습니다{g_until}.", "source": R},
         ],
         "calendar": {"start": att["course_start"], "end": att["as_of"],
                      "dates": [x.isoformat() for x in dates], "first3_end": first3_end.isoformat()},
